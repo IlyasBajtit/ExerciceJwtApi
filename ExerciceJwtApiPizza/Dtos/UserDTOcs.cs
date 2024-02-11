@@ -6,24 +6,32 @@ namespace ExerciceJwtApiPizza.Dtos
 {
     public class UserDTO
     {
-        [Column("id")]
+        [Column("Id")]
         public int Id { get; set; }
-        [Column("firstname")]
-        [Required]
+
+        [Column("FirstName")]
+        [Required(ErrorMessage = "Le prénom est requis.")]
         public string? FirstName { get; set; }
-        [Column("lastname")]
-        [Required]
+
+        [Column("LastName")]
+        [Required(ErrorMessage = "Le nom de famille est requis.")]
         public string? LastName { get; set; }
-        [Column("is_admin")]
-        [Required]
+
+        [Column("Email")]
+        [Required(ErrorMessage = "L'adresse email est requise.")]
+        [RegularExpression(@"^([a-zA-Z0-9\.\-_]+)@([a-zA-Z0-9\-_]+)(\.)?([a-zA-Z0-9\-_]+)?(\.){1}([a-zA-Z]{2,11})$", ErrorMessage = "Adresse email invalide")]
+        public string Email { get; set; }
+
+        [Column("PhoneNumber")]
+        [Required(ErrorMessage = "Le numéro de téléphone est requis.")]
+        public string PhoneNumber { get; set; }
+
+        [Column("Address")]
+        [Required(ErrorMessage = "L'adresse est requise.")]
+        public string Address { get; set; }
+
+        [Column("IsAdmin")]
+        [Required(ErrorMessage = "La spécification 'isAdmin' est requise.")]
         public bool IsAdmin { get; set; } = false;
-        [RegularExpression(@"^([a-zA-Z0-9\.\-_]+)@([a-zA-Z0-9\-_]+)(\.)?([a-zA-Z0-9\-_]+)?(\.){1}([a-zA-Z]{2,11})$", ErrorMessage = "Invalid email address")]
-        [Column("email")]
-        [Required]
-        public String Email { get; set; }
-        [PasswordValidator]
-        [Column("password")]
-        [Required]
-        public String Password { get; set; }
     }
 }
