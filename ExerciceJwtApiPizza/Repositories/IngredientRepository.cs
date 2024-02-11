@@ -7,7 +7,7 @@ namespace ExerciceJwtApiPizza.Repositories
 {
 
 
-    public interface IngredientRepository : IRepository<Ingredient>
+    public class IngredientRepository : IRepository<Ingredient>
     {
         private readonly AppDbContext _db;
 
