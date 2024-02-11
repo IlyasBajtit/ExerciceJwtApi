@@ -6,24 +6,30 @@ namespace ExerciceJwtApiPizza.Dtos
 {
     public class PizzaDTO
     {
-        [Column("id")]
+        [Column("Id")]
         public int Id { get; set; }
-        [Column("name")]
-        [Required]
+
+        [Column("Name")]
+        [Required(ErrorMessage = "Le nom de la pizza est requis.")]
         public string Name { get; set; }
-        [Column("description")]
-        [Required]
+
+        [Column("Description")]
+        [Required(ErrorMessage = "La description de la pizza est requise.")]
         public string Description { get; set; }
-        [Column("price")]
-        [Required]
+
+        [Column("Price")]
+        [Required(ErrorMessage = "Le prix de la pizza est requis.")]
         public decimal Price { get; set; }
-        [Column("image_url")]
-        [Required]
+
+        [Column("Image")]
+        [Required(ErrorMessage = "L'URL de l'image de la pizza est requise.")]
         public string ImageUrl { get; set; }
-        [Column("pizza_type")]
-        [Required]
+
+        [Column("Status")]
+        [Required(ErrorMessage = "Le type de pizza est requis.")]
         public PizzaStatus Variety { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
+
+        public List<Ingredient> Ingredients { get; set; } 
 
         public enum PizzaStatus
         {
